@@ -1,7 +1,9 @@
 const express = require('express')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
-const userRouter = require('../users/users-router');
+const authRouter = require('../auth/auth-router');
+const itemsRouter = require('../items/items-router')
+const restrict = require('../auth/auth-middleware')
 
 
 const server = express();
@@ -13,9 +15,9 @@ const server = express();
 server.use(cors())
 server.use(express.json());
 server.use(cookieParser())
-server.use(logger())
 
-server.use(userRouter);
+server.use('/api', authRouter);
+server.use('/api/items', itemsRouter, restrict());
 
 server.use((err, req, res, next) => {
 	console.log(err)

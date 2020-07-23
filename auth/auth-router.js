@@ -1,7 +1,7 @@
 const express = require('express')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const data = require('./users-model')
+const data = require('./auth-model')
 
 
 
@@ -10,7 +10,7 @@ const router = express.Router()
 
 router.post('/register', async (req, res, next) => {
     try {
-		const { username, password } = req.body
+		const { username, password, email, first_name, last_name } = req.body
 		const user = await data.findBy({ username }).first()
 
 		if (user) {
@@ -22,6 +22,9 @@ router.post('/register', async (req, res, next) => {
 		const newUser = await data.add({
 			username,
 			password: await bcrypt.hash(password, 14),
+			email,
+			first_name,
+			last_name
 		})
 
 		res.status(201).json(newUser)
@@ -46,19 +49,21 @@ router.post('/login', async (req, res, next) => {
 			return res.status(401).json({
 				message: "Invalid Credentials",
 			})
-		}
-		const payload = {
+		}  
+        const payload = {
 			userId: user.id,
 			username: user.username
-		}
-        res.cookie('token', jwt.sign(payload, process.env.JWT_sECRET))
+		} 
+
 		res.json({
 			message: `Welcome ${user.username}!`,
+			token: jwt.sign(payload, process.env.JWT_SECRET)
 		})
 	} catch(err) {
 		next(err)
 	}
 })
+
 
 
 
