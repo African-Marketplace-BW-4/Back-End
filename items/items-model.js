@@ -24,7 +24,7 @@ module.exports = {
 
 function add(item) {
     return db('items')
-    .insert(item)
+    .insert(item, 'id')
     .then(ids => {
        return getById(ids[0]) 
     })
