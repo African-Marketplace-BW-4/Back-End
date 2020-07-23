@@ -30,9 +30,8 @@ seeds: {
   directory: "./database/seeds",
 },
 pool: {
-  afterCreate: (conn, done) => {
-    conn.run("PRAGMA foreign_keys = ON", done)
-  }
-}
+      min: 2,
+      max: 10,
+    }
 }
 }
