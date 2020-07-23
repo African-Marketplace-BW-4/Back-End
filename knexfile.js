@@ -23,9 +23,7 @@ module.exports = {
 production: {
   client: "pg",
 useNullAsDefault: true,
-connection: {
-  filename: "./database/auth.db3",
-},
+connection: process.env.DATABASE_URL,
 migrations: {
   directory: "./database/migrations",
 },
