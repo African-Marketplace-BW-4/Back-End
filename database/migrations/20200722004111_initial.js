@@ -17,7 +17,7 @@ exports.up = async function(knex) {
       table.integer('location_id')
            .references('id')
            .inTable('locations')
-           .onDelete('RESTRICT')
+           .onDelete('CASCADE')
            .onUpdate('CASCADE'); 
   })
   await knex.schema.createTable('locations', (table) => {
