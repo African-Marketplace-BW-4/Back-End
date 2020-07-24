@@ -1,5 +1,6 @@
 
 exports.seed = async function(knex) {
+  await knex('items').truncate()
   await knex('items').insert([
     {name: 'eggs', description: 'organic, 12 eggs', price: 2.49, location_id: 1},
     {name: 'milk', description: 'whole milk, 1 liter', price: 3.99, location_id: 1},
