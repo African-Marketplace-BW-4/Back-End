@@ -9,6 +9,10 @@ exports.up = async function(knex) {
       table.text('email').notNullable().unique()
       
   })
+  await knex.schema.createTable('locations', (table) => {
+    table.increments('id')
+    table.text('location').notNullable()
+})
   await knex.schema.createTable('items', (table) => {
       table.increments('id')
       table.text('name').notNullable()
@@ -20,14 +24,10 @@ exports.up = async function(knex) {
            .onDelete('CASCADE')
            .onUpdate('CASCADE'); 
   })
-  await knex.schema.createTable('locations', (table) => {
-      table.increments('id')
-      table.text('location').notNullable()
-  })
 };
 
 exports.down = async function(knex) {
-  await knex.schema.dropTableIfExists('locations')
   await knex.schema.dropTableIfExists('items')
+  await knex.schema.dropTableIfExists('locations')
   await knex.schema.dropTableIfExists('users')
 };
