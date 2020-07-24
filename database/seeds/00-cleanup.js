@@ -1,5 +1,5 @@
 
 exports.seed = async function(knex) {
-  await knex('locations').truncate()
-  await knex('items').truncate()
+  await knex.raw('TRUNCATE TABLE items CASCADE')
+  await knex.raw('TRUNCATE TABLE locations CASCADE')
 };
