@@ -10,7 +10,7 @@ exports.up = async function(knex) {
       
   })
   await knex.schema.createTable('locations', (table) => {
-    table.increments('id')
+    table.increments()
     table.text('location').notNullable()
 })
   await knex.schema.createTable('items', (table) => {
