@@ -1,6 +1,6 @@
 
 exports.seed = function(knex, Promise) {
-  return knex('items').truncate()
+  return knex('items').del()
     .then(function () {
       return  knex('items').insert([
     {name: 'eggs', description: 'organic, 12 eggs', price: 2.49, location_id: 1},

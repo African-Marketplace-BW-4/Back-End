@@ -1,6 +1,6 @@
 
 exports.seed = function(knex, Promise) {
-  return knex('locations').truncate()
+  return knex('locations').del()
     .then(function () {
       return knex('locations').insert([
     {location: 'Michigan'},
