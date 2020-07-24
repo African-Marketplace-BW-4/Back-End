@@ -1,5 +1,5 @@
 
 exports.seed = async function(knex) {
-  await knex('items').truncate()
   await knex('locations').truncate()
+  await knex('items').truncate()
 };
