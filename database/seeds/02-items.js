@@ -1,7 +1,8 @@
 
-exports.seed = async function(knex) {
-  // await knex('items').truncate()
-  await knex('items').insert([
+exports.seed = function(knex, Promise) {
+  return knex('accounts').truncate()
+    .then(function () {
+      return  knex('items').insert([
     {name: 'eggs', description: 'organic, 12 eggs', price: 2.49, location_id: 1},
     {name: 'milk', description: 'whole milk, 1 liter', price: 3.99, location_id: 1},
     {name: 'beef', description: 'cow meat', price: 6.99, location_id: 2},
@@ -9,4 +10,5 @@ exports.seed = async function(knex) {
     {name: 'tomato', description: 'vine tomato', price: 1.89, location_id: 3},
     {name: 'onion', description: 'red onion', price: 1.59, location_id: 3},
   ])
+})
 };

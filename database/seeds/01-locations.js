@@ -1,9 +1,11 @@
 
-exports.seed = async function(knex) {
-  // await knex('locations').truncate()
-  await knex('locations').insert([
+exports.seed = function(knex, Promise) {
+  return knex('accounts').truncate()
+    .then(function () {
+      return knex('locations').insert([
     {location: 'Michigan'},
     {location: 'Illinois'},
     {location: 'Ohio'},
   ])
+})
 };
