@@ -30,3 +30,4 @@ seeds: {
   directory: "./database/seeds",
 },
 }
+}
