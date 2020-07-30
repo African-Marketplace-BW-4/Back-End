@@ -10,7 +10,7 @@ const server = express();
 server.use(helmet())
 
 const origin =
-process.env.JWT_SECRET === 'production' ? 'http://localhost:3000' : 'http://example.com';
+process.env.JWT_SECRET === 'production' ? 'https://build-week-app.herokuapp.com': 'http://localhost:3000';
 server.use(cors({ credentials: true, origin }));
 
 server.use(express.json());

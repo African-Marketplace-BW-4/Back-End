@@ -6,7 +6,10 @@
   "scripts": {
     "server": "nodemon -r dotenv/config index.js",
     "start": "node index.js",
-    "test": "jest"
+    "test": "cross"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -33,6 +36,8 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "nodemon": "^2.0.4"
+    "jest": "^26.2.1",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
   }
 }

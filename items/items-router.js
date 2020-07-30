@@ -42,7 +42,7 @@ router.put('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     try {
         await data.remove(req.params.id)
-        res.status(202).json({message: 'The car has been removed'})
+        res.status(202).json({message: 'The item has been removed'})
     } catch(err) {
         next(err)
     }

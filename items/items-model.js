@@ -17,9 +17,9 @@ module.exports = {
   
   function getById(id) {
     return db('items as i')
-    .join('locations as l', 'l.id', 'i.location_id')
+    // .join('locations as l', 'l.id', 'i.location_id')
     .where('i.id', id)
-    .select('i.id', 'i.name', 'i.description', 'i.price', 'l.location')
+    // .select('i.id', 'i.name', 'i.description', 'i.price', 'l.location')
 }
 
 function add(item) {

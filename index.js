@@ -1,7 +1,7 @@
 const server = require('./api/server')
 
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 
 
