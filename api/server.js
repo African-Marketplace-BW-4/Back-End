@@ -9,9 +9,9 @@ const restrict = require('../auth/auth-middleware')
 const server = express();
 server.use(helmet())
 
-const origin =
-process.env.JWT_SECRET === 'production' ? 'https://build-week-app.herokuapp.com': 'http://localhost:3000';
-server.use(cors({ credentials: true, origin }));
+// const origin =
+// process.env.JWT_SECRET === 'production' ? 'https://build-week-app.herokuapp.com': 'http://localhost:3000';
+server.use(cors());
 
 server.use(express.json());
 
