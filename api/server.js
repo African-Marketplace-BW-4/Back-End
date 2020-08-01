@@ -14,7 +14,10 @@ server.use(helmet())
 server.use(cors());
 
 server.use(express.json());
-
+// const isTesting = process.env.TESTING;
+// const restricted = isTesting
+//   ? (_req, _res, next) => next()
+//   : restrict;
 
 server.use('/api', authRouter);
 server.use('/api/items', itemsRouter, restrict());

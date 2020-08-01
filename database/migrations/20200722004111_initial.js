@@ -18,7 +18,7 @@ exports.up = async function(knex) {
       table.text('name').notNullable()
       table.text('description').notNullable()
       table.decimal('price').notNullable()
-      table.integer('location_id')
+      table.integer('location_id').notNullable()
            .references('id')
            .inTable('locations')
            .onDelete('CASCADE')
