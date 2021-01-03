@@ -9,9 +9,9 @@ const restrict = require('../auth/auth-middleware')
 const server = express();
 server.use(helmet())
 
-const origin =
-process.env.JWT_SECRET === 'production' ? 'http://localhost:3000' : 'http://example.com';
-server.use(cors({credentials: true, origin}));
+// const origin =
+// process.env.JWT_SECRET === 'production' ? 'http://localhost:3000' : 'http://example.com';
+server.use(cors());
 
 server.use(express.json());
 // const isTesting = process.env.TESTING;
