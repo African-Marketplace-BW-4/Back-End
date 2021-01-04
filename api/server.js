@@ -10,8 +10,8 @@ const server = express();
 server.use(helmet())
 
 // const origin =
-// process.env.JWT_SECRET === 'production' ? 'http://localhost:3000' : 'http://example.com';
-server.use(cors());
+// process.env.JWT_SECRET === 'production' ? 'http://localhost:3000' : 'https://build-week-app.herokuapp.com';
+server.use(cors({credentials: true, origin: true}));
 
 server.use(express.json());
 // const isTesting = process.env.TESTING;
